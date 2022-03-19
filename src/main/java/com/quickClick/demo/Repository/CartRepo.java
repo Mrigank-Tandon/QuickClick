@@ -1,4 +1,7 @@
 package com.quickClick.demo.Repository;
 
-public class CartRepo {
+import com.quickClick.demo.Entity.CartEntity;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CartRepo extends CrudRepository<CartEntity, Integer> {
 }
