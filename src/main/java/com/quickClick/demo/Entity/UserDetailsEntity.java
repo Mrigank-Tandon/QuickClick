@@ -1,7 +1,18 @@
 package com.quickClick.demo.Entity;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "UserDetails")
 public class UserDetailsEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer user_id;
+
+
     private String user_name;
     private Integer user_contact;
     private String user_email;
