@@ -1,8 +1,9 @@
 package com.quickClick.demo.Pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Product {
+public class Product implements Serializable {
     private Integer product_id;
     private String product_name;
     private String product_description;
@@ -13,8 +14,19 @@ public class Product {
     private Integer qunatity_available;
     private Integer rating;
     private String review;
+    private String imageSource;
 
-    public Product(Integer product_id, String product_name, String product_description, Integer product_prize, Integer product_weight, String product_category, Integer merchant_id, Integer qunatity_available, Integer rating, String review) {
+    public String getImageSource() {
+        return imageSource;
+    }
+
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
+    }
+
+    public Product(Integer product_id, String product_name, String product_description, Integer product_prize,
+                   Integer product_weight, String product_category, Integer merchant_id, Integer qunatity_available,
+                   Integer rating, String review , String imageSource) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_description = product_description;
@@ -25,6 +37,7 @@ public class Product {
         this.qunatity_available = qunatity_available;
         this.rating = rating;
         this.review = review;
+        this.imageSource = imageSource;
     }
 
     public Product() {

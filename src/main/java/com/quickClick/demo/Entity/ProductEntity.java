@@ -1,96 +1,118 @@
 package com.quickClick.demo.Entity;
 
-public class ProductEntity {
-    private Integer product_id;
-    private String product_name;
-    private String product_description;
-    private Integer product_prize;
-    private Integer product_weight;
-    private String product_category;
-    private Integer merchant_id;
-    private Integer qunatity_available;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "Product")
+public class ProductEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer productId;
+
+    private String productName;
+    private String productDescription;
+    private Integer productPrice;
+    private Integer productWeight;
+    private String productCategory;
+    private Integer merchantId;
+    private Integer qunatityAvailable;
     private Integer rating;
     private String review;
+    private String imageSource;
 
+    public String getImageSource() {
+        return imageSource;
+    }
 
-    public ProductEntity(Integer product_id, String product_name, String product_description, Integer product_prize, Integer product_weight, String product_category, Integer merchant_id, Integer qunatity_available, Integer rating, String review) {
-        this.product_id = product_id;
-        this.product_name = product_name;
-        this.product_description = product_description;
-        this.product_prize = product_prize;
-        this.product_weight = product_weight;
-        this.product_category = product_category;
-        this.merchant_id = merchant_id;
-        this.qunatity_available = qunatity_available;
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
+    }
+
+    public ProductEntity(Integer productId, String productName, String productDescription, Integer productPrice, Integer productWeight, String productCategory, Integer merchantId, Integer qunatityAvailable, Integer rating, String review, String imageSource) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+        this.productWeight = productWeight;
+        this.productCategory = productCategory;
+        this.merchantId = merchantId;
+        this.qunatityAvailable = qunatityAvailable;
         this.rating = rating;
         this.review = review;
+        this.imageSource = imageSource;
     }
+
+
 
     public ProductEntity() {
     }
 
-    public Integer getProduct_id() {
-        return product_id;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getProduct_description() {
-        return product_description;
+    public String getProductDescription() {
+        return productDescription;
     }
 
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
-    public Integer getProduct_prize() {
-        return product_prize;
+    public Integer getProductPrice() {
+        return productPrice;
     }
 
-    public void setProduct_prize(Integer product_prize) {
-        this.product_prize = product_prize;
+    public void setProductPrice(Integer productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public Integer getProduct_weight() {
-        return product_weight;
+    public Integer getProductWeight() {
+        return productWeight;
     }
 
-    public void setProduct_weight(Integer product_weight) {
-        this.product_weight = product_weight;
+    public void setProductWeight(Integer productWeight) {
+        this.productWeight = productWeight;
     }
 
-    public String getProduct_category() {
-        return product_category;
+    public String getProductCategory() {
+        return productCategory;
     }
 
-    public void setProduct_category(String product_category) {
-        this.product_category = product_category;
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
-    public Integer getMerchant_id() {
-        return merchant_id;
+    public Integer getMerchantId() {
+        return merchantId;
     }
 
-    public void setMerchant_id(Integer merchant_id) {
-        this.merchant_id = merchant_id;
+    public void setMerchantId(Integer merchantId) {
+        this.merchantId = merchantId;
     }
 
-    public Integer getQunatity_available() {
-        return qunatity_available;
+    public Integer getQunatityAvailable() {
+        return qunatityAvailable;
     }
 
-    public void setQunatity_available(Integer qunatity_available) {
-        this.qunatity_available = qunatity_available;
+    public void setQunatityAvailable(Integer qunatityAvailable) {
+        this.qunatityAvailable = qunatityAvailable;
     }
 
     public Integer getRating() {
