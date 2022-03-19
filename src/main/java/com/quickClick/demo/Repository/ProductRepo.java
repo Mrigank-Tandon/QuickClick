@@ -1,4 +1,7 @@
 package com.quickClick.demo.Repository;
 
-public class ProductRepo {
+import com.quickClick.demo.Entity.ProductEntity;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductRepo extends CrudRepository<ProductEntity, Integer> {
 }
