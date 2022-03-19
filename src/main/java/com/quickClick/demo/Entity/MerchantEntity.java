@@ -1,7 +1,17 @@
 package com.quickClick.demo.Entity;
 
-public class MerchantEntity {
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "Merchant")
+public class MerchantEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer Merchant_id;
+
     private String Merchant_name;
     private String Merchant_email;
     private Integer Merchant_contact;

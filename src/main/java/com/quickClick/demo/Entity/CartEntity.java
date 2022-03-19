@@ -1,8 +1,20 @@
 package com.quickClick.demo.Entity;
 
+//import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "Cart")
 public class CartEntity {
-    private Integer order_history;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer cart_id;
+
+    private Integer order_history;
     private boolean isPlaced;
     private Integer Product_id;
     private Integer User_Id;
