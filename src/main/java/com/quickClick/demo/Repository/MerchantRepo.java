@@ -1,4 +1,8 @@
 package com.quickClick.demo.Repository;
 
-public class MerchantRepo {
+import com.quickClick.demo.Entity.MerchantEntity;
+import org.springframework.data.repository.CrudRepository;
+
+public interface MerchantRepo extends CrudRepository<MerchantEntity, Integer> {
+
 }
