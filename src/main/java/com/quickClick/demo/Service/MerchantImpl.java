@@ -17,7 +17,6 @@ public class MerchantImpl implements MerchantService {
     public MerchantEntity getMerchantById(Integer id) {
         Optional<MerchantEntity> optionalMerchantEntity = merchantRepo.findById(id);
         MerchantEntity merchantEntity = optionalMerchantEntity.get();
-
         return merchantEntity;
     }
 }

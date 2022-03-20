@@ -7,10 +7,9 @@ import com.quickClick.demo.Entity.ProductEntity;
 import com.quickClick.demo.Service.MerchantService;
 import com.quickClick.demo.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
+
 
 import com.quickClick.demo.Repository.ProductSearch;
 
@@ -28,15 +27,14 @@ public class MainController {
     @Autowired
     ProductService productService;
 
-
     @Autowired
     MerchantService merchantService;
+
 
     @GetMapping("/products")
     public List<ProductEntity> getAllProducts(){
 
             return productService.getAllProducts();
-
     }
     @GetMapping("/search")
     public List<ProductEntity> searchProduct(@RequestParam @Valid String keyword){
@@ -47,12 +45,30 @@ public class MainController {
     @GetMapping("/merchant")
     public MerchantEntity getMerchantById(@RequestParam @Valid Integer id){
         return merchantService.getMerchantById(id);
+
     }
 
+    @GetMapping("/products/")
+    public ProductEntity getProdById(@RequestParam Integer id){
+        return productService.getProductById(id);
+    }
 
+    @PostMapping("/addproducts")
+    public void addProd(@RequestBody ProductEntity product){
+        productService.addProducts(product);
 
+    }
 
+    @PutMapping("/updateproducts")
+    public void updateProd(@RequestBody ProductEntity product){
+        productService.updateProducts(product);
 
+    }
 
+    @DeleteMapping("/deleteprod")
+    public void deleteprod(@RequestBody ProductEntity product){
+        productService.deleteProducts(product);
+
+    }
 
 }

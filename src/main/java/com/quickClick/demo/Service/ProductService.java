@@ -10,4 +10,6 @@ public interface ProductService {
     List<ProductEntity> getAllProducts();
     ProductEntity getProductById(Integer id);
     void addProducts(ProductEntity product);
+    void updateProducts(ProductEntity product);
+    void deleteProducts(ProductEntity product);
 }
