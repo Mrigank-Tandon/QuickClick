@@ -29,6 +29,11 @@ public class MerchantEntity implements Serializable {
     @JoinColumn(name = "Merchant_id")
     private List<ProductEntity> productEntityList;
 
+
+//    private List<ProductEntity> productEntityList1;
+
+
+
     public MerchantEntity() {
     }
 
