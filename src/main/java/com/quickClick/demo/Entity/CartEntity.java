@@ -1,31 +1,32 @@
 package com.quickClick.demo.Entity;
 
+//import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "Cart")
 public class CartEntity {
-    private Integer order_history;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer cart_id;
+
+    private Integer order_history;
     private boolean isPlaced;
     private Integer Product_id;
     private Integer User_Id;
     private String timeOfOrder;
 
-    public CartEntity(Integer order_history, Integer cart_id, boolean isPlaced, Integer product_id, Integer user_Id, String timeOfOrder) {
-        this.order_history = order_history;
+    public CartEntity(Integer cart_id, Integer order_history, boolean isPlaced, Integer product_id, Integer user_Id, String timeOfOrder) {
         this.cart_id = cart_id;
+        this.order_history = order_history;
         this.isPlaced = isPlaced;
         Product_id = product_id;
         User_Id = user_Id;
         this.timeOfOrder = timeOfOrder;
-    }
-
-    public CartEntity() {
-    }
-
-    public Integer getOrder_history() {
-        return order_history;
-    }
-
-    public void setOrder_history(Integer order_history) {
-        this.order_history = order_history;
     }
 
     public Integer getCart_id() {
@@ -34,6 +35,14 @@ public class CartEntity {
 
     public void setCart_id(Integer cart_id) {
         this.cart_id = cart_id;
+    }
+
+    public Integer getOrder_history() {
+        return order_history;
+    }
+
+    public void setOrder_history(Integer order_history) {
+        this.order_history = order_history;
     }
 
     public boolean isPlaced() {

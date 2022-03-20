@@ -1,30 +1,54 @@
 package com.quickClick.demo.Pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Product {
+public class Product implements Serializable {
     private Integer product_id;
     private String product_name;
     private String product_description;
     private Integer product_prize;
     private Integer product_weight;
     private String product_category;
-    private Integer merchant_id;
+//    private Integer merchant_id;
     private Integer qunatity_available;
     private Integer rating;
     private String review;
+    private String imageSource;
 
-    public Product(Integer product_id, String product_name, String product_description, Integer product_prize, Integer product_weight, String product_category, Integer merchant_id, Integer qunatity_available, Integer rating, String review) {
+    private List<Merchant> merchantList;
+
+    public List<Merchant> getMerchantList() {
+        return merchantList;
+    }
+
+    public void setMerchantList(List<Merchant> merchantList) {
+        this.merchantList = merchantList;
+    }
+
+    public String getImageSource() {
+        return imageSource;
+    }
+
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
+    }
+
+    public Product(Integer product_id, String product_name, String product_description, Integer product_prize,
+                   Integer product_weight, String product_category, Integer qunatity_available, Integer rating,
+                   String review, String imageSource, List<Merchant> merchantList) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_description = product_description;
         this.product_prize = product_prize;
         this.product_weight = product_weight;
         this.product_category = product_category;
-        this.merchant_id = merchant_id;
         this.qunatity_available = qunatity_available;
         this.rating = rating;
         this.review = review;
+        this.imageSource = imageSource;
+        this.merchantList = merchantList;
     }
 
     public Product() {
@@ -78,13 +102,13 @@ public class Product {
         this.product_category = product_category;
     }
 
-    public Integer getMerchant_id() {
-        return merchant_id;
-    }
-
-    public void setMerchant_id(Integer merchant_id) {
-        this.merchant_id = merchant_id;
-    }
+//    public Integer getMerchant_id() {
+//        return merchant_id;
+//    }
+//
+//    public void setMerchant_id(Integer merchant_id) {
+//        this.merchant_id = merchant_id;
+//    }
 
     public Integer getQunatity_available() {
         return qunatity_available;
