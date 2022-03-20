@@ -1,5 +1,7 @@
 package com.quickClick.demo.Pojo;
 
+import java.util.List;
+
 public class Merchant {
     private Integer Merchant_id;
     private String Merchant_name;
@@ -10,7 +12,19 @@ public class Merchant {
     private Integer ProductRating;// average of all the product rating
     private Integer ServiceRating;// same as product rating , user can specifically add rating
 
-    public Merchant(Integer merchant_id, String merchant_name, String merchant_email, Integer merchant_contact, Integer no_of_ListingProd, String seller_sinceWhatDate, Integer productRating, Integer serviceRating) {
+    private List<Product> productList;
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
+    public Merchant(Integer merchant_id, String merchant_name, String merchant_email, Integer merchant_contact,
+                    Integer no_of_ListingProd, String seller_sinceWhatDate, Integer productRating, Integer serviceRating,
+                    List<Product> productList) {
         Merchant_id = merchant_id;
         Merchant_name = merchant_name;
         Merchant_email = merchant_email;
@@ -19,6 +33,7 @@ public class Merchant {
         Seller_sinceWhatDate = seller_sinceWhatDate;
         ProductRating = productRating;
         ServiceRating = serviceRating;
+        this.productList = productList;
     }
 
     public Merchant() {

@@ -1,8 +1,12 @@
 package com.quickClick.demo.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.quickClick.demo.Pojo.Product;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Merchant")
@@ -20,7 +24,17 @@ public class MerchantEntity implements Serializable {
     private Integer ProductRating;// average of all the product rating
     private Integer ServiceRating;
 
-    public MerchantEntity(Integer merchant_id, String merchant_name, String merchant_email, Integer merchant_contact, Integer no_of_ListingProd, String seller_sinceWhatDate, Integer productRating, Integer serviceRating) {
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "Merchant_id")
+    private List<ProductEntity> productEntityList;
+
+    public MerchantEntity() {
+    }
+
+    public MerchantEntity(Integer merchant_id, String merchant_name, String merchant_email, Integer merchant_contact,
+                          Integer no_of_ListingProd, String seller_sinceWhatDate, Integer productRating, Integer serviceRating,
+                          List<ProductEntity> productEntityList) {
         Merchant_id = merchant_id;
         Merchant_name = merchant_name;
         Merchant_email = merchant_email;
@@ -29,9 +43,7 @@ public class MerchantEntity implements Serializable {
         Seller_sinceWhatDate = seller_sinceWhatDate;
         ProductRating = productRating;
         ServiceRating = serviceRating;
-    }
-
-    public MerchantEntity() {
+        this.productEntityList = productEntityList;
     }
 
     public Integer getMerchant_id() {
@@ -96,5 +108,13 @@ public class MerchantEntity implements Serializable {
 
     public void setServiceRating(Integer serviceRating) {
         ServiceRating = serviceRating;
+    }
+
+    public List<ProductEntity> getProductEntityList() {
+        return productEntityList;
+    }
+
+    public void setProductEntityList(List<ProductEntity> productEntityList) {
+        this.productEntityList = productEntityList;
     }
 }

@@ -1,5 +1,6 @@
 package com.quickClick.demo.Controller;
 
+import com.quickClick.demo.Entity.ProductEntity;
 import com.quickClick.demo.Pojo.Product;
 import com.quickClick.demo.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class MainController {
     ProductService productService;
 
     @GetMapping("/students")
-    public List<Product> getStudent(){
+    public List<ProductEntity> getStudent(){
         return productService.getAllProducts();
     }
 
