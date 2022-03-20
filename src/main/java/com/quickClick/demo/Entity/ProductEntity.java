@@ -1,8 +1,12 @@
 package com.quickClick.demo.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.quickClick.demo.Pojo.Merchant;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Product")
@@ -18,37 +22,33 @@ public class ProductEntity implements Serializable {
     private Integer productPrice;
     private Integer productWeight;
     private String productCategory;
-    private Integer merchantId;
     private Integer qunatityAvailable;
     private Integer rating;
     private String review;
     private String imageSource;
 
-    public String getImageSource() {
-        return imageSource;
+    @ManyToOne
+    @JoinColumn(name ="Merchant_id")
+    private MerchantEntity merchantEntity;
+
+    public ProductEntity() {
     }
 
-    public void setImageSource(String imageSource) {
-        this.imageSource = imageSource;
-    }
-
-    public ProductEntity(Integer productId, String productName, String productDescription, Integer productPrice, Integer productWeight, String productCategory, Integer merchantId, Integer qunatityAvailable, Integer rating, String review, String imageSource) {
+    public ProductEntity(Integer productId, String productName, String productDescription,
+                         Integer productPrice, Integer productWeight, String productCategory,
+                         Integer qunatityAvailable, Integer rating, String review, String imageSource,
+                         MerchantEntity merchantEntity) {
         this.productId = productId;
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productWeight = productWeight;
         this.productCategory = productCategory;
-        this.merchantId = merchantId;
         this.qunatityAvailable = qunatityAvailable;
         this.rating = rating;
         this.review = review;
         this.imageSource = imageSource;
-    }
-
-
-
-    public ProductEntity() {
+        this.merchantEntity = merchantEntity;
     }
 
     public Integer getProductId() {
@@ -99,14 +99,6 @@ public class ProductEntity implements Serializable {
         this.productCategory = productCategory;
     }
 
-    public Integer getMerchantId() {
-        return merchantId;
-    }
-
-    public void setMerchantId(Integer merchantId) {
-        this.merchantId = merchantId;
-    }
-
     public Integer getQunatityAvailable() {
         return qunatityAvailable;
     }
@@ -129,5 +121,21 @@ public class ProductEntity implements Serializable {
 
     public void setReview(String review) {
         this.review = review;
+    }
+
+    public String getImageSource() {
+        return imageSource;
+    }
+
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
+    }
+
+    public MerchantEntity getMerchantEntity() {
+        return merchantEntity;
+    }
+
+    public void setMerchantEntity(MerchantEntity merchantEntity) {
+        this.merchantEntity = merchantEntity;
     }
 }
