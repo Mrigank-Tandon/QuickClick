@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductImpl implements ProductService {
@@ -29,11 +30,24 @@ public class ProductImpl implements ProductService {
 
     @Override
     public ProductEntity getProductById(Integer id) {
-        return null;
+        Optional<ProductEntity> optionalEntity =  productRepo.findById(id);
+        ProductEntity productEntity = optionalEntity.get();
+        return productEntity;
     }
 
     @Override
     public void addProducts(ProductEntity product) {
+        productRepo.save(product);
+    }
+
+    @Override
+    public void updateProducts(ProductEntity product){
+        productRepo.save(product);
+    }
+
+    @Override
+    public void deleteProducts(ProductEntity product){
+        productRepo.delete(product);
 
     }
 }
